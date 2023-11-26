@@ -8,7 +8,7 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 
 ## 📚 Índice de Sabiduría
 
-1. [Integración de Cuenta de Servicio en GitHub Actions](#integración-de-cuenta-de-servicio-en-github-actions)
+1. [Integración de Cuenta de Servicio en GitHub Actions](GCPServiceAccountAsGHActionSecret.md)
    - Consejos para integrar cuentas de servicio de Google Cloud Platform en GitHub Actions.
 
 ## 💡 ¿Cómo contribuir?
