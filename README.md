@@ -14,6 +14,9 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 2. [Guía de Manejo de Variables de Entorno JSON en Scripts Bash](JSONEnvVarsFromSecretsOrConfigmaps.md)
    -  Se incluye un ejemplo práctico utilizando secretos de Kubernetes para ilustrar el enfoque correcto.
 
+3. [Parámetro para la autodestrucción post-ejecución](K8sCronJobDeleteAfterExecution.md)
+   -  Esto establecerá ttlSecondsAfterFinished: 0, asegurando que el trabajo se elimine automáticamente después de la finalización de los pods.
+
 ## 💡 ¿Cómo contribuir?
 
 ¡Estamos ansiosos por recibir tus aportaciones macarras! Si tienes algún consejo o truco de DevOps que quieras compartir, sigue estos pasos:
