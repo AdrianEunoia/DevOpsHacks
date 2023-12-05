@@ -18,7 +18,7 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
    -  Esto establecerá ttlSecondsAfterFinished: 0, asegurando que el trabajo se elimine automáticamente después de la finalización de los pods.
 
 4. [Establecer un alias para cambiar de cluster de GKE rápidamente](SwapCLIBetweenGCPClusters.md)
-   -  EPatata CLI 😅
+   -  Patata CLI 😅
 
 
 ## 💡 ¿Cómo contribuir?
