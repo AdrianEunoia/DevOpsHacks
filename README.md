@@ -20,6 +20,9 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 4. [Establecer un alias para cambiar de cluster de GKE rápidamente](SwapCLIBetweenGCPClusters.md)
    -  Patata CLI 😅
 
+5. [Analizar o filtrar logs de Docker con GREP](ANALyzeDockerLogswithGrep.md)
+   -  La redirección de logs en Docker puede requerir la combinación de docker logs 2>&1 y grep para abordar problemas de buffering y canal de error, asegurando una búsqueda efectiva en tiempo real.
+
 
 ## 💡 ¿Cómo contribuir?
 
