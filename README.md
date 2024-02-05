@@ -23,6 +23,9 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 5. [Analizar o filtrar logs de Docker con GREP](ANALyzeDockerLogswithGrep.md)
    -  La redirección de logs en Docker puede requerir la combinación de docker logs 2>&1 y grep para abordar problemas de buffering y canal de error, asegurando una búsqueda efectiva en tiempo real.
 
+6. [Guía de Ajuste de Tiempos de Espera en Ingress Nginx en GKE con Helm](ModifyHelmIngressNginx.md)
+   -  Ajuste de Tiempos de Espera en Ingress Nginx en GKE con Helm.
+   
 
 ## 💡 ¿Cómo contribuir?
 
