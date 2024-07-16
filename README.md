@@ -25,6 +25,10 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 
 6. [Guía de Ajuste de Tiempos de Espera en Ingress Nginx en GKE con Helm](ModifyHelmIngressNginx.md)
    -  Ajuste de Tiempos de Espera en Ingress Nginx en GKE con Helm.
+
+7. [Obtener IPs Reales de Clientes en Kubernetes detrás de Cloudflare desde tu INGRESS NGINX de Kubernetes](ModifyHelmIngressNginx.md)
+   -  Nuestra aplicación en Kubernetes necesitaba capturar las IPs reales de los clientes, pero Cloudflare estaba mostrando solo las IPs de sus nodos. Esta es la solución que implementamos para obtener las IPs reales.
+   
    
 
 ## 💡 ¿Cómo contribuir?
