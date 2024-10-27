@@ -29,7 +29,8 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 7. [Obtener IPs Reales de Clientes en Kubernetes detrás de Cloudflare desde tu INGRESS NGINX de Kubernetes](GetRealIPFromCloudFlare.md)
    -  Nuestra aplicación en Kubernetes necesitaba capturar las IPs reales de los clientes, pero Cloudflare estaba mostrando solo las IPs de sus nodos. Esta es la solución que implementamos para obtener las IPs reales.
    
-   
+8. [Configuración del Tamaño Máximo de Carga en NGINX Ingress para ingress-nginx](IncreaseUploadLimitinNGINXIngress.md)
+   - El error 413 Payload Too Large se puede solucionar al aumentar el límite de proxy-body-size en el recurso Ingress afectado.
 
 ## 💡 ¿Cómo contribuir?
 
