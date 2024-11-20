@@ -32,6 +32,9 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 8. [Configuración del Tamaño Máximo de Carga en NGINX Ingress para ingress-nginx](IncreaseUploadLimitinNGINXIngress.md)
    - El error 413 Payload Too Large se puede solucionar al aumentar el límite de proxy-body-size en el recurso Ingress afectado.
 
+9. [Configuración de uso horario para deployments diferentes a UTC+0](clusterTimeZone.md)
+   - En Kubernetes, la zona horaria predeterminada es UTC (`UTC+0`). Si necesitas que tus aplicaciones usen una zona horaria diferente, puedes configurar la variable de entorno `TZ` en los contenedores. Esto es una solución sencilla y eficaz que no requiere modificar el sistema operativo de los nodos.
+
 ## 💡 ¿Cómo contribuir?
 
 ¡Estamos ansiosos por recibir tus aportaciones macarras! Si tienes algún consejo o truco de DevOps que quieras compartir, sigue estos pasos:
