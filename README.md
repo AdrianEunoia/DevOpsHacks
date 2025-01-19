@@ -35,6 +35,9 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 9. [Configuración de uso horario para deployments diferentes a UTC+0](clusterTimeZone.md)
    - En Kubernetes, la zona horaria predeterminada es UTC (`UTC+0`). Si necesitas que tus aplicaciones usen una zona horaria diferente, puedes configurar la variable de entorno `TZ` en los contenedores. Esto es una solución sencilla y eficaz que no requiere modificar el sistema operativo de los nodos.
 
+10. [Automatización de Ventanas de Mantenimiento para Clústeres GKE en Google Cloud](applyMaintenanceGKEScript.md)
+   - Este script configura automáticamente ventanas de mantenimiento recurrentes para clústeres de GKE en todos los proyectos de Google Cloud asociados, asegurando un mantenimiento eficiente y sin interrupciones.
+   
 ## 💡 ¿Cómo contribuir?
 
 ¡Estamos ansiosos por recibir tus aportaciones macarras! Si tienes algún consejo o truco de DevOps que quieras compartir, sigue estos pasos:
