@@ -68,8 +68,45 @@ Resultado: El script configura la ventana de mantenimiento para cada clúster en
 **Editar variables**: Ajusta las variables START_DATE, END_DATE, y RECURRENCE según tus necesidades antes de ejecutar el script.
 **Ejecutar el script**: Una vez configuradas las variables, simplemente ejecuta el script:
 
+## Script
+
 ```bash
- script.sh
+#!/bin/bash
+
+# Variables
+START_DATE="2025-01-20T00:00:00Z"  # Fecha de inicio de la ventana de mantenimiento en formato UTC (12:00 AM)
+END_DATE="2025-01-20T12:00:00Z"    # Fecha de finalización de la ventana de mantenimiento (12 horas después)
+RECURRING_DAYS="FREQ=WEEKLY;BYDAY=SA"  # Día de la semana para la recurrencia (sábado)
+
+# Listar todos los proyectos
+PROJECTS=$(gcloud projects list --format="value(projectId)")
+
+# Iterar sobre cada proyecto
+for PROJECT_ID in $PROJECTS; do
+    echo "Configurando ventana de mantenimiento para el proyecto: $PROJECT_ID"
+
+    # Establecer el proyecto actual
+    gcloud config set project $PROJECT_ID
+
+    # Obtener el nombre del clúster en el proyecto
+    CLUSTER_NAME=$(gcloud container clusters list --filter="status=RUNNING" --format="value(name)" --limit=1)
+    if [ -z "$CLUSTER_NAME" ]; then
+        echo "No se encontró ningún clúster en el proyecto $PROJECT_ID."
+        continue
+    fi
+
+    # Obtener la región del clúster
+    REGION=$(gcloud container clusters list --filter="name=$CLUSTER_NAME" --format="value(location)")
+
+    # Configurar la ventana de mantenimiento
+    gcloud container clusters update $CLUSTER_NAME \
+        --maintenance-window-start $START_DATE \
+        --maintenance-window-end $END_DATE \
+        --maintenance-window-recurrence "$RECURRING_DAYS" \
+        --region=$REGION
+
+    echo "Ventana de mantenimiento configurada para el clúster $CLUSTER_NAME en el proyecto $PROJECT_ID, los sábados desde las 12:00 AM UTC durante 12 horas."
+done
 ```
 
 **Verificación**: El script imprimirá un mensaje indicando que la ventana de mantenimiento ha sido configurada correctamente para cada clúster y proyecto donde se haya aplicado.
