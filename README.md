@@ -37,6 +37,9 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 
 10. [Automatización de Ventanas de Mantenimiento para Clústeres GKE en Google Cloud](applyMaintenanceGKEScript.md)
    - Este script configura automáticamente ventanas de mantenimiento recurrentes para clústeres de GKE en todos los proyectos de Google Cloud asociados, asegurando un mantenimiento eficiente y sin interrupciones.
+
+11. [Cancelar y Eliminar Trabajos de GitHub Actions](cancelNddeleteGHActionsQueue.md)
+   - Esta guía describe cómo cancelar trabajos en cola y eliminar trabajos completados en un repositorio de GitHub Actions utilizando la API de GitHub.
    
 ## 💡 ¿Cómo contribuir?
 
