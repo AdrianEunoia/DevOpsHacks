@@ -12,23 +12,23 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
    - Consejos para integrar cuentas de servicio de Google Cloud Platform en GitHub Actions.
 
 2. [Guía de Manejo de Variables de Entorno JSON en Scripts Bash](JSONEnvVarsFromSecretsOrConfigmaps.md)
-   -  Se incluye un ejemplo práctico utilizando secretos de Kubernetes para ilustrar el enfoque correcto.
+   - Se incluye un ejemplo práctico utilizando secretos de Kubernetes para ilustrar el enfoque correcto.
 
 3. [Parámetro para la autodestrucción post-ejecución en un K8s CronJob](K8sCronJobDeleteAfterExecution.md)
-   -  Esto establecerá ttlSecondsAfterFinished: 0, asegurando que el trabajo se elimine automáticamente después de la finalización de los pods.
+   - Esto establecerá ttlSecondsAfterFinished: 0, asegurando que el trabajo se elimine automáticamente después de la finalización de los pods.
 
 4. [Establecer un alias para cambiar de cluster de GKE rápidamente](SwapCLIBetweenGCPClusters.md)
-   -  Patata CLI 😅
+   - Patata CLI 😅
 
 5. [Analizar o filtrar logs de Docker con GREP](ANALyzeDockerLogswithGrep.md)
-   -  La redirección de logs en Docker puede requerir la combinación de docker logs 2>&1 y grep para abordar problemas de buffering y canal de error, asegurando una búsqueda efectiva en tiempo real.
+   - La redirección de logs en Docker puede requerir la combinación de docker logs 2>&1 y grep para abordar problemas de buffering y canal de error, asegurando una búsqueda efectiva en tiempo real.
 
 6. [Guía de Ajuste de Tiempos de Espera en Ingress Nginx en GKE con Helm](ModifyHelmIngressNginx.md)
-   -  Ajuste de Tiempos de Espera en Ingress Nginx en GKE con Helm.
+   - Ajuste de Tiempos de Espera en Ingress Nginx en GKE con Helm.
 
 7. [Obtener IPs Reales de Clientes en Kubernetes detrás de Cloudflare desde tu INGRESS NGINX de Kubernetes](GetRealIPFromCloudFlare.md)
-   -  Nuestra aplicación en Kubernetes necesitaba capturar las IPs reales de los clientes, pero Cloudflare estaba mostrando solo las IPs de sus nodos. Esta es la solución que implementamos para obtener las IPs reales.
-   
+   - Nuestra aplicación en Kubernetes necesitaba capturar las IPs reales de los clientes, pero Cloudflare estaba mostrando solo las IPs de sus nodos. Esta es la solución que implementamos para obtener las IPs reales.
+
 8. [Configuración del Tamaño Máximo de Carga en NGINX Ingress para ingress-nginx](IncreaseUploadLimitinNGINXIngress.md)
    - El error 413 Payload Too Large se puede solucionar al aumentar el límite de proxy-body-size en el recurso Ingress afectado.
 
@@ -36,10 +36,11 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
    - En Kubernetes, la zona horaria predeterminada es UTC (`UTC+0`). Si necesitas que tus aplicaciones usen una zona horaria diferente, puedes configurar la variable de entorno `TZ` en los contenedores. Esto es una solución sencilla y eficaz que no requiere modificar el sistema operativo de los nodos.
 
 10. [Automatización de Ventanas de Mantenimiento para Clústeres GKE en Google Cloud](applyMaintenanceGKEScript.md)
-   - Este script configura automáticamente ventanas de mantenimiento recurrentes para clústeres de GKE en todos los proyectos de Google Cloud asociados, asegurando un mantenimiento eficiente y sin interrupciones.
+    - Este script configura automáticamente ventanas de mantenimiento recurrentes para clústeres de GKE en todos los proyectos de Google Cloud asociados, asegurando un mantenimiento eficiente y sin interrupciones.
 
 11. [Cancelar y Eliminar Trabajos de GitHub Actions](cancelNddeleteGHActionsQueue.md)
-   - Esta guía describe cómo cancelar trabajos en cola y eliminar trabajos completados en un repositorio de GitHub Actions utilizando la API de GitHub.
+    - Esta guía describe cómo cancelar trabajos en cola y eliminar trabajos completados en un repositorio de GitHub Actions utilizando la API de GitHub.
+
 
 ## 💡 ¿Cómo contribuir?
 
