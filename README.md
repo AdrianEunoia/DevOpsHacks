@@ -40,7 +40,7 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 
 11. [Cancelar y Eliminar Trabajos de GitHub Actions](cancelNddeleteGHActionsQueue.md)
    - Esta guía describe cómo cancelar trabajos en cola y eliminar trabajos completados en un repositorio de GitHub Actions utilizando la API de GitHub.
-   
+
 ## 💡 ¿Cómo contribuir?
 
 ¡Estamos ansiosos por recibir tus aportaciones macarras! Si tienes algún consejo o truco de DevOps que quieras compartir, sigue estos pasos:
