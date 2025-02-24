@@ -1,43 +1,72 @@
-# Ajuste de Tiempos de Espera en Ingress Nginx en GKE con Helm
+# Guía para Modificar el Timeout del NGINX Ingress Controller en un Clúster de Kubernetes
 
-Esta guía te mostrará cómo ajustar los tiempos de espera (timeouts) en un Ingress Nginx instalado en Google Kubernetes Engine (GKE) utilizando Helm.
+### Pasos para aumentar los timeouts en NGINX Ingress Controller
 
-## 1. Identificar la Release Name
+1. **Obtener el ConfigMap actual:**
 
-Primero, identifica la release name que se utilizó al instalar Ingress Nginx. Puedes obtener esta información ejecutando el siguiente comando:
-
-```bash
-kubectl get deployment -n <NAMESPACE> <INGRESS_NGINX_DEPLOYMENT_NAME> -o=jsonpath={.metadata.labels."meta.helm.sh/release-name"}
-```
-
-Reemplaza `<NAMESPACE>` con el namespace en el que se instaló Ingress Nginx y `<INGRESS_NGINX_DEPLOYMENT_NAME>` con el nombre del deployment de Ingress Nginx.
-
-## 2. Ajustar Tiempos de Espera con Helm
-
-Utiliza el siguiente comando Helm para ajustar los tiempos de espera:
+Para obtener el ConfigMap donde se almacenan las configuraciones de NGINX Ingress Controller, ejecuta el siguiente comando:
 
 ```bash
-helm upgrade --set controller.config.proxy-connect-timeout="5s"
---set controller.config.proxy-send-timeout="600s"
---set controller.config.proxy-read-timeout="600s"
-<RELEASE_NAME> ingress-nginx/ingress-nginx
+kubectl get configmap nginx-ingress-ingress-nginx-controller -n default -o yaml > nginx-configmap.yaml
 ```
 
-Reemplaza `<RELEASE_NAME>` con la release name identificada en el paso anterior.
+Esto descargará el archivo de configuración del ConfigMap a tu máquina local.
 
-## 3. Verificar la Configuración
+2. **Editar el archivo del ConfigMap:**
 
-Después de la actualización, verifica que los cambios hayan sido aplicados correctamente:
+Abre el archivo nginx-configmap.yaml en tu editor favorito, como nano:
 
 ```bash
-kubectl get ing -n <NAMESPACE>
-
+nano nginx-configmap.yaml
 ```
 
-Observa la salida para confirmar que los nuevos tiempos de espera se reflejan en la configuración del Ingress Nginx.
+3. **Agregar o modificar los parámetros de timeout:**
 
-## 4. Observar el Comportamiento
+Dentro del archivo, busca o agrega las siguientes líneas para establecer los timeouts a 900 segundos (15 minutos):
 
-Observa el comportamiento de tu aplicación para asegurarte de que los cambios tengan el efecto deseado en el manejo de los tiempos de espera.
+```yaml
 
-Con estos pasos, deberías poder ajustar los tiempos de espera en tu Ingress Nginx en GKE mediante Helm.
+apiVersion: v1
+data:
+  proxy-read-timeout: "900"
+  proxy-send-timeout: "900"
+  proxy-connect-timeout: "900"
+kind: ConfigMap
+metadata:
+  annotations:
+    meta.helm.sh/release-name: nginx-ingress
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2024-05-13T08:20:37Z"
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: nginx-ingress
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+    app.kubernetes.io/version: 1.12.0
+    helm.sh/chart: ingress-nginx-4.12.0
+  name: nginx-ingress-ingress-nginx-controller
+  namespace: default
+  resourceVersion: "265550000"
+  uid: 61bebbd1-404d-452e-a30b-575fa8bfb55a
+```
+
+4. **Aplicar los cambios:**
+
+Una vez que hayas realizado los cambios, aplica el nuevo ConfigMap al clúster:
+
+```bash
+kubectl apply -f nginx-configmap.yaml
+```
+
+5. **Reiniciar el Deployment del NGINX Ingress Controller:**
+
+Para aplicar los cambios, debes reiniciar el deployment del NGINX Ingress Controller. Usa el siguiente comando:
+
+```bash
+kubectl rollout restart deployment nginx-ingress-ingress-nginx-controller -n default
+```
+
+6. **Verificar los cambios:**
+
+Puedes verificar los logs del Ingress Controller para asegurarte de que los cambios se aplicaron correctamente o realizar una prueba con una solicitud que normalmente habría expirado para comprobar si ahora se maneja correctamente el timeout.
