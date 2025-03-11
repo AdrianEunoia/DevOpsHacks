@@ -36,10 +36,13 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
    - En Kubernetes, la zona horaria predeterminada es UTC (`UTC+0`). Si necesitas que tus aplicaciones usen una zona horaria diferente, puedes configurar la variable de entorno `TZ` en los contenedores. Esto es una solución sencilla y eficaz que no requiere modificar el sistema operativo de los nodos.
 
 10. [Automatización de Ventanas de Mantenimiento para Clústeres GKE en Google Cloud](applyMaintenanceGKEScript.md)
-    - Este script configura automáticamente ventanas de mantenimiento recurrentes para clústeres de GKE en todos los proyectos de Google Cloud asociados, asegurando un mantenimiento eficiente y sin interrupciones.
+   - Este script configura automáticamente ventanas de mantenimiento recurrentes para clústeres de GKE en todos los proyectos de Google Cloud asociados, asegurando un mantenimiento eficiente y sin interrupciones.
 
 11. [Cancelar y Eliminar Trabajos de GitHub Actions](cancelNddeleteGHActionsQueue.md)
-    - Esta guía describe cómo cancelar trabajos en cola y eliminar trabajos completados en un repositorio de GitHub Actions utilizando la API de GitHub.
+   - Esta guía describe cómo cancelar trabajos en cola y eliminar trabajos completados en un repositorio de GitHub Actions utilizando la API de GitHub.
+
+12. [Eliminar imágenes de Artifacts Docker GCP](oldArtifactsImageDockerGcp.md)
+   - Este documento explica cómo usar gcloud para eliminar imágenes Docker en Google Cloud Artifact Registry que tengan más de 30 días de antigüedad, manteniendo el repositorio optimizado.
 
 
 ## 💡 ¿Cómo contribuir?
