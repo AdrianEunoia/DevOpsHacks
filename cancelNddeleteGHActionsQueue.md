@@ -116,3 +116,30 @@ for job_id in $completed_jobs; do
        -X DELETE https://api.github.com/repos/<DUEÑO>/<REPOSITORIO>/actions/runs/$job_id
 done
 ```
+### Script simplificado y en bucle
+```bash
+#!/bin/bash
+
+# Define el repositorio
+   REPO="organizacion/repositorio"
+
+# Token de GitHub (asegúrate de almacenarlo de forma segura en lugar de hardcodearlo)
+GITHUB_TOKEN="COMPLETA CON TU GITHUB TOKEN"
+
+# Obtener los IDs de los workflows completados
+completed_jobs=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+  -X GET "https://api.github.com/repos/$REPO/actions/runs" | jq -r '.workflow_runs[] | select(.status=="completed") | .id')
+
+# Eliminar cada workflow completado
+for job_id in $completed_jobs; do
+  echo "Eliminando workflow con ID: $job_id"
+  response=$(curl -s -o /dev/null -w "%{http_code}" -H "Authorization: token $GITHUB_TOKEN" \
+    -X DELETE "https://api.github.com/repos/$REPO/actions/runs/$job_id")
+
+  if [ "$response" -eq 204 ]; then
+    echo "Workflow $job_id eliminado correctamente."
+  else
+    echo "Error eliminando workflow $job_id. Código de respuesta: $response"
+  fi
+done
+```
