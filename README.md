@@ -44,6 +44,9 @@ Este repositorio es tu guarida de sabiduría operativa y consejos hardcore de De
 12. [Eliminar imágenes de Artifacts Docker GCP](oldArtifactsImageDockerGcp.md)
    - Este documento explica cómo usar gcloud para eliminar imágenes Docker en Google Cloud Artifact Registry que tengan más de 30 días de antigüedad, manteniendo el repositorio optimizado.
 
+13. [Cloud Scheduler Cron Cleanup](cloudSchedulerCronCleanup.md)
+   - Eliminar los cron jobs antiguos de App Engine evita errores y logs obsoletos, asegurando que el cambio de formato de audit logs de Google Cloud no afecte al sistema.
+
 
 ## 💡 ¿Cómo contribuir?
 
