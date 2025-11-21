@@ -64,3 +64,20 @@ app.listen(3000, () => {
 
 ## Conclusión
 - Configurando el ingress nginx y utilizando los encabezados proporcionados por Cloudflare, logramos obtener las IPs reales de los clientes, mejorando nuestro registro y análisis de tráfico.
+
+## Fast apply
+```bash
+kubectl get configmap nginx-ingress-ingress-nginx-controller -n default -o json | \
+jq '
+  .data["use-forwarded-headers"] //= "true" |
+  .data["enable-real-ip"] //= "true" |
+  .data["real-ip-header"] //= "CF-Connecting-IP" |
+  .data["compute-full-forwarded-for"] //= "true" |
+  .data["set-real-ip-from"] //= "0.0.0.0/0"
+' | kubectl apply -f -
+```
+
+```bash
+kubectl rollout restart deployment nginx-ingress-ingress-nginx-controller -n default
+```
+
